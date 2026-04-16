@@ -1,0 +1,44 @@
+"use client";
+
+import { addtocart } from "@/action/cart.actions";
+import { CartContext } from "@/Context/CartContext";
+import { Button } from "@base-ui/react";
+import React, { useContext } from "react";
+import { toast } from "sonner";
+
+export default function AddBtn({
+  classes,
+  word,
+  id,
+}: {
+  classes: string;
+  word: React.ReactNode;
+  id: string;
+}) {
+  const { numberofcart, setnumberofcart } = useContext(CartContext);
+
+  async function addCart() {
+    const res = await addtocart(id);
+
+    if (res.status === "success") {
+      toast.success(res.message, { position: "top-center" });
+      setnumberofcart(numberofcart + 1);
+    } else {
+      toast.error(res.message, {
+        position: "top-center",
+      });
+    }
+  }
+
+  return (
+    <Button
+      onClick={(e) => {
+        e.preventDefault();
+        addCart();
+      }}
+      className={classes}
+    >
+      {word}
+    </Button>
+  );
+}
