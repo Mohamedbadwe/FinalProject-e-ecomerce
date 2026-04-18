@@ -8,6 +8,8 @@ export default async function page(props: { params: { id: string } }) {
   const params = await props.params;
   const id = params.id;
   const res = await Brandcard(id);
+  console.log(res);
+  
   const Brandcards: ProductType[] = Array.isArray(res) ? res : [];
 
   return (

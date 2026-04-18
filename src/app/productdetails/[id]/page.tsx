@@ -8,6 +8,8 @@ export default async function page(props: { params: Promise<{ id: string }> } ) 
   const parms = await props.params;
   const id = parms.id;
   const Product = await getProduct(id);
+  console.log(Product);
+  
   const rating = Product?.ratingsAverage || 0;
   const stars = Array.from({ length: 5 }, (_, i) => {
     if (rating >= i + 1) return <FaStar key={i} className="text-yellow-400" />;

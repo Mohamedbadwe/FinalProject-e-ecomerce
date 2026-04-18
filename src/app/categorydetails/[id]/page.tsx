@@ -1,7 +1,5 @@
 import { Singlecategory } from "@/Servies/routemisr.servies";
-import { SingleType, SubCategory } from "@/app/types/route.misr";
 import React from "react";
-import { IoNotificationsOffCircleOutline } from "react-icons/io5";
 
 export default async function page(props: { params: { id: string } }) {
   const params = await props.params;

@@ -5,15 +5,9 @@ import React, { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { toast } from "sonner";
-import { useParams, useRouter } from "next/navigation";
-import { FaFacebook, FaGoogle, FaStar } from "react-icons/fa";
-import Link from "next/link";
-import { LoginMySchema, LoginSchemaType } from "@/Schema/auth.Schems";
-import { signIn } from "next-auth/react";
+import { useParams } from "next/navigation";
 import { checkoutSchem, checkoutType } from "@/Schema/checkout.schem";
 import { onlinePayment } from "@/action/checkout.action";
-import { string } from "zod";
 import {
   Building2,
   CheckCircle2,
@@ -25,7 +19,6 @@ import {
   ShieldCheck,
   Wallet,
 } from "lucide-react";
-import { allorders } from "@/Servies/routemisr.servies";
 import Image from "next/image";
 import { getCart } from "@/action/cart.actions";
 import { cartProduct } from "@/app/cart/cart.type";
@@ -163,7 +156,6 @@ export default function page() {
                 )}
               />
 
-              {/* PASSWORD */}
               <Controller
                 name="phone"
                 control={form.control}
@@ -266,7 +258,6 @@ export default function page() {
                     Secure payment with Credit/Debit Card via Stripe
                   </p>
                   <div className="flex gap-1.5 mt-2">
-                    {/* Card Logos Placeholder */}
                     <div className="w-7 h-4 bg-[#1a3a82] rounded-sm flex items-center justify-center text-[8px] text-white font-bold italic">
                       VISA
                     </div>
@@ -280,7 +271,6 @@ export default function page() {
               </div>
             </div>
 
-            {/* Security Footer */}
             <div className="mt-6 bg-[#f4faf6] border border-green-50 p-3 rounded-xl flex items-center gap-3">
               <div className="bg-green-100 p-2 rounded-full text-green-600">
                 <ShieldCheck size={18} />
@@ -349,7 +339,6 @@ export default function page() {
                   Subtotal
                 </p>
                 <span className="font-['Font_1'] font-medium text-[16px] leading-6 tracking-[0]">
-                  {" "}
                   {cart?.totalCartPrice} EGP
                 </span>
               </div>
@@ -370,7 +359,6 @@ export default function page() {
                 total
               </p>
               <span className="font-['Font_1'] font-medium text-[16px] leading-6 tracking-[0]">
-                {" "}
                 {cart?.totalCartPrice} EGP
               </span>
             </div>

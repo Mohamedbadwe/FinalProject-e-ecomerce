@@ -45,7 +45,6 @@ export default function Navbar() {
               <Link href="/">Fresh Cart</Link>
             </h1>
 
-            {/* Search Bar - Hidden on mobile */}
             <div className="hidden md:block flex-1 max-w-xl relative">
               <input
                 type="text"
@@ -58,7 +57,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <Link
               href="/"
@@ -73,7 +71,6 @@ export default function Navbar() {
               Shop
             </Link>
 
-            {/* Categories Dropdown */}
             <div className="relative group">
               <button className="font-medium text-[#364153] hover:text-[#16A34A] transition-colors flex items-center gap-1">
                 Categories
@@ -102,9 +99,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Right Side Icons - Desktop */}
           <div className="hidden md:flex items-center gap-6">
-            {/* Support */}
             <Link href="/support" className="flex items-center gap-3 group">
               <div className="w-10 h-10 bg-[#F0FDF4] rounded-full flex items-center justify-center">
                 <RiCustomerService2Fill className="text-[#16A34A] text-2xl" />
@@ -115,7 +110,6 @@ export default function Navbar() {
               </div>
             </Link>
 
-            {/* Wishlist */}
             <Link
               href="/wishlist"
               className="text-3xl text-[#364153] hover:text-[#16A34A] transition-colors"
@@ -123,7 +117,6 @@ export default function Navbar() {
               <CiHeart />
             </Link>
 
-            {/* Cart */}
             <Link
               href="/cart"
               className="relative text-3xl text-[#364153] hover:text-[#16A34A] transition-colors"
@@ -136,7 +129,6 @@ export default function Navbar() {
               )}
             </Link>
 
-            {/* Auth Button */}
             {status !== "authenticated" ? (
               <Link
                 href="/login"
@@ -156,13 +148,12 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger >
-                <button className="bg-[#16A34A] text-white p-3 rounded-full w-[50px] flex items-center justify-center cursor-pointer">
+                <span className="bg-[#16A34A] text-white p-3 rounded-full flex items-center justify-center cursor-pointer">
                   <IoMenu size={26} />
-                </button>
+                </span>
               </SheetTrigger>
 
               <SheetContent side="right" className="w-80 p-6">
