@@ -1,4 +1,4 @@
-import { detailsSubCategories, SubCategoriesdetails } from '@/Servies/routemisr.servies'
+import { detailsSubCategories } from '@/Servies/routemisr.servies'
 import React from 'react'
 
 export default async function page(props: { params: { id: string } }) {

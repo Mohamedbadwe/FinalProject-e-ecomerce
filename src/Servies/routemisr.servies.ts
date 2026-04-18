@@ -145,23 +145,6 @@ export async function SubCategories() {
 
 
 
-export async function SubCategoriesdetails(id: string): Promise<SingleType | null> {
-  try {
-    const res = await fetch(
-      `https://ecommerce.routemisr.com/api/v1/subcategories/${id}`,
-      {
-        cache: "force-cache",
-      },
-    );
-    const data = await res.json();
-    return data
-  } catch (err) {
-    console.log(err);
-    return null;
-  }
-}
-
-
 export async function detailsSubCategories(id: string): Promise<SingleType | null> {
   try {
     const res = await fetch(

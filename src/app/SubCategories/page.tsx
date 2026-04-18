@@ -1,6 +1,5 @@
 import {
   SubCategories,
-  SubCategoriesdetails,
 } from "@/Servies/routemisr.servies";
 import Link from "next/link";
 import React from "react";
