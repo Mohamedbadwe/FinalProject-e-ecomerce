@@ -4,6 +4,7 @@ import { getMyToken } from "@/utilites";
 export async function addtocart(producId: string) {
   try {
     const token = await getMyToken();
+    console.log("tokennnnnnnnnnnnnn", token);
 
     if (!token) {
       throw new Error("please login");
@@ -26,7 +27,9 @@ export async function addtocart(producId: string) {
 }
 export async function getCart() {
   const token = await getMyToken();
-
+  if (!token) {
+    throw new Error("please login");
+  }
   const res = await fetch(`https://ecommerce.routemisr.com/api/v2/cart`, {
     method: "GET",
     headers: {

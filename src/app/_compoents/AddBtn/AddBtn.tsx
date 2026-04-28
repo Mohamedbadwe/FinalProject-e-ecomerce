@@ -29,7 +29,7 @@ export default function AddBtn({
       });
     }
   }
-
+ if(!id)return <><p>not login</p></>
   return (
     <Button
       onClick={(e) => {

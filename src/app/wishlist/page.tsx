@@ -1,7 +1,5 @@
 "use client";
-
 import {
-  addtowishlist,
   deleteWishlist,
   getWishlist as getWishlistAPI,
 } from "@/action/wishlist.actions";
@@ -52,7 +50,7 @@ export default function Page() {
               <div className="flex flex-col mx-auto text-center mt-3">
                 <button className="bg-green-500 rounded-2xl text-white text-2xl ">
                   <Link
-                    href={`/categories`}
+                    href={`/`}
                     className="flex items-center justify-center py-3 text-center mx-auto gap-2 "
                   >
                     <p> Browser Product</p>
@@ -87,7 +85,7 @@ export default function Page() {
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-800 text-sm">
+                  <h3 className="font-semibold text-gray-800 text-sm ">
                     {wish.title}
                   </h3>
 

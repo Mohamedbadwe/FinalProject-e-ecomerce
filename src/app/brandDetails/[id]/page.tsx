@@ -9,7 +9,7 @@ export default async function page(props: { params: { id: string } }) {
   const id = params.id;
   const res = await Brandcard(id);
   console.log(res);
-  
+
   const Brandcards: ProductType[] = Array.isArray(res) ? res : [];
 
   return (
@@ -20,9 +20,11 @@ export default async function page(props: { params: { id: string } }) {
         </div>
       ) : (
         Brandcards.map((product) => (
-          <Link href={`/productdetails/${product.id}`} key={product.id}>
-            <ProductCard product={product} />
-          </Link>
+          <div className="w-[80%] mx-auto my-5">
+            <Link href={`/productdetails/${product.id}`} key={product.id}>
+              <ProductCard product={product} />
+            </Link>
+          </div>
         ))
       )}
     </div>
