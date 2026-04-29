@@ -42,7 +42,6 @@ export default function CartPage() {
     setupdataloading(true);
 
     const res = await Updatacart(id, newcount);
-    console.log("updatacart", res);
     if (res.status === "success") {
       toast.success(res.message, {
         position: "top-center",
@@ -110,6 +109,7 @@ export default function CartPage() {
       </div>
     );
   }
+  
 
   return (
     <>

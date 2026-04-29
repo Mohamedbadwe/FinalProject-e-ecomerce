@@ -27,6 +27,10 @@ export async function getProduct(id: string): Promise<ProductType | undefined> {
     return undefined;
   }
 }
+
+
+
+
 export async function getAllCategory(): Promise<CategoryType[] | undefined> {
   try {
     const res = await fetch(
@@ -42,6 +46,10 @@ export async function getAllCategory(): Promise<CategoryType[] | undefined> {
     return undefined;
   }
 }
+
+
+
+
 export async function Singlecategory(id: string): Promise<SingleType | null> {
   try {
     const res = await fetch(

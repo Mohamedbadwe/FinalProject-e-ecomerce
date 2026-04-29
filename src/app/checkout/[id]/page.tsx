@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useParams } from "next/navigation";
 import { checkoutSchem, checkoutType } from "@/Schema/checkout.schem";
-import { onlinePayment } from "@/action/checkout.action";
+import { onlinePayment } from "../../../action/checkout.action";
 import {
   Building2,
   CheckCircle2,

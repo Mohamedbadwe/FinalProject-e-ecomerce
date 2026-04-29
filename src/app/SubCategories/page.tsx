@@ -34,7 +34,6 @@ export default async function page() {
         {subCategories?.map((item: SubCategory) => (
           <Link href={`/subCategoriesdetails/${item._id}`} key={item._id}>
             <div className=" bg-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition duration-300 cursor-pointer">
-              {/* icon */}
               <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-4">
                 <svg
                   className="w-7 h-7 text-green-600"

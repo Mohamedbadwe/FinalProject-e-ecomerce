@@ -2,7 +2,6 @@ import { GetAllProduct } from "@/Servies/routemisr.servies";
 import Link from "next/link";
 import React from "react";
 import ProductCard from "../_compoents/ProductCard/ProductCard";
-import CardsFooter from "../_compoents/CardsFooter/CardsFooter";
 
 export default async function page() {
 

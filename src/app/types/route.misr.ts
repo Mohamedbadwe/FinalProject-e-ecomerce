@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface ProductType {
   sold: number;
   images: string[];
@@ -50,3 +52,8 @@ export interface SingleType {
   updatedAt: string;
   __v: number;
 }
+export interface DetailsProductProps  {
+  Product: ProductType;
+  stars: ReactNode;
+  id: string;
+};

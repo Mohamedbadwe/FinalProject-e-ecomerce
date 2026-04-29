@@ -3,13 +3,14 @@ import Image from "next/image";
 import { FiRefreshCw } from "react-icons/fi";
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
-import { ProductType } from "@/app/types/route.misr";
+import { CategoryType, ProductType } from "@/app/types/route.misr";
 import { IoEyeSharp } from "react-icons/io5";
 import AddBtn from "../AddBtn/AddBtn";
 import Addwishlist from "../Addwishlist/Addwishlist";
 import { Button } from "@base-ui/react";
+import { CiHeart } from "react-icons/ci";
 
-export default function ProductCard({ product }: { product: ProductType }) {
+export default function ProductCard({ product }: { product: ProductType  } ) {
   const rating = product?.ratingsAverage || 0;
   const stars = Array.from({ length: 5 }, (_, i) => {
     if (rating >= i + 1) return <FaStar key={i} className="text-yellow-400" />;
@@ -20,7 +21,8 @@ export default function ProductCard({ product }: { product: ProductType }) {
   return (
     <div className="border rounded-2xl p-4 shadow-lg hover:shadow-md transition relative bg-white min-h-104.5 flex flex-col ">
       <div className="absolute top-3 right-1 flex flex-col gap-2 text-xl text-gray-600 z-20">
-        <Addwishlist id={product.id} />
+        
+        <Addwishlist id={product.id} classes="p-2 bg-white rounded-full shadow hover:bg-gray-100 cursor-pointer focus:text-red-500 " word={<CiHeart />} />
         <Button className="p-2 bg-white rounded-full shadow hover:bg-gray-100 cursor-pointer">
           <FiRefreshCw />
         </Button>
@@ -29,7 +31,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
         </Button>
       </div>
 
-      <div className="w-full flex items-center justify-center relative   ">
+      <div className="w-full flex items-center justify-center relative     ">
         <Image
           src={product.imageCover}
           alt="Woman Shawl"
@@ -38,7 +40,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
           className="object-cover h-60 z-0 "
         />
         {product.priceAfterDiscount && (
-          <p className="absolute top-0 left-0 bg-red-600 text-white p-1 rounded-4xl">
+          <p className="absolute top-0 left-0 bg-red-600 text-white p-1 rounded-4xl font-bold">
             {(
               ((product.price - product.priceAfterDiscount) / product.price) *
               100

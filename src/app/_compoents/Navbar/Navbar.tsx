@@ -17,14 +17,13 @@ import {
 } from "@/components/ui/sheet";
 
 import { CartContext } from "@/Context/CartContext";
-import { Button } from "@/components/ui/button";
 
 const categories = [
   { title: "All Categories", href: "/categories" },
   { title: "Electronics", href: "/categories/electronics" },
-  { title: "Women's Fashion", href: "/categories/women" },
-  { title: "Men's Fashion", href: "/categories/men" },
-  { title: "Beauty & Health", href: "/categories/beauty" },
+  { title: "Women's Fashion", href: "/categories/women's-fashion" },
+  { title: "Men's Fashion", href: "/categories/men's-fashion" },
+  { title: "Beauty & Health", href: "/categories/beauty-and-health" },
 ];
 
 export default function Navbar() {
@@ -150,7 +149,7 @@ export default function Navbar() {
 
           <div className="md:hidden">
             <Sheet>
-              <SheetTrigger >
+              <SheetTrigger>
                 <span className="bg-[#16A34A] text-white p-3 rounded-full flex items-center justify-center cursor-pointer">
                   <IoMenu size={26} />
                 </span>
