@@ -2,14 +2,12 @@ import ProductCard from "@/app/_compoents/ProductCard/ProductCard";
 import { ProductType } from "@/app/types/route.misr";
 import { Brandcard } from "@/Servies/routemisr.servies";
 import Link from "next/link";
-import React from "react";
 
 export default async function page(props: { params: { id: string } }) {
 
   const params = await props.params;
   const id = params.id;
   const res = await Brandcard(id);
-  // console.log(res);
 
   const Brandcards: ProductType[] = Array.isArray(res) ? res : [];
 
@@ -21,8 +19,8 @@ export default async function page(props: { params: { id: string } }) {
         </div>
       ) : (
         Brandcards.map((product) => (
-          <div className="w-[80%] mx-auto my-5 ">
-            <Link href={`/productdetails/${product.id}`} key={product.id}>
+          <div className="w-[80%] mx-auto my-5 " key={product.id}>
+            <Link href={`/productdetails/${product.id}`} >
               <ProductCard product={product} />
             </Link>
           </div>

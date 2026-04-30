@@ -7,7 +7,6 @@ export default async function Page(props: { params: { id: string } }) {
   const id = params.id;
 
   const orders = await allorders(id);
-  // console.log(orders);
   
 
   return (

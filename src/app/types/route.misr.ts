@@ -42,6 +42,7 @@ export interface SubCategory {
   name: string;
   slug: string;
   category: string;
+  image : string;
 }
 export interface SingleType {
   _id: string;

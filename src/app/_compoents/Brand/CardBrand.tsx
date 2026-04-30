@@ -1,11 +1,8 @@
 import { Brand } from "@/app/types/route.misr";
-// import { Brands } from "@/Servies/routemisr.servies";
 import Image from "next/image";
-import React from "react";
 
 export default async function CardBrand({brand} : {brand : Brand}) {
-  // const brand: Brand = await Brands();
-  // console.log(brand);
+
 
   return (
     <>

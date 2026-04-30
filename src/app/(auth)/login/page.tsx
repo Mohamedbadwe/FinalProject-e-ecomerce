@@ -1,7 +1,6 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
-import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,14 +10,11 @@ import {
   FaClock,
   FaFacebook,
   FaGoogle,
-  FaShoppingCart,
-  FaStar,
   FaTruck,
 } from "react-icons/fa";
 import Link from "next/link";
 import { LoginMySchema, LoginSchemaType } from "@/Schema/auth.Schems";
 import { signIn } from "next-auth/react";
-import { ShieldCheck } from "lucide-react";
 import { FaShield } from "react-icons/fa6";
 import img from "../../../assets/images/381609d78c4d97f9277837bc4bdf05035b888463.png";
 import Image from "next/image";
@@ -131,7 +127,6 @@ export default function page() {
             onSubmit={handleSubmit(Mysubmit)}
             className="flex flex-col gap-4"
           >
-            {/* EMAIL */}
             <Controller
               name="email"
               control={form.control}
@@ -155,7 +150,6 @@ export default function page() {
               )}
             />
 
-            {/* PASSWORD */}
             <Controller
               name="password"
               control={form.control}

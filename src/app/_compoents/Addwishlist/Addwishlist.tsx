@@ -1,8 +1,6 @@
 "use client";
 
-import { addtocart } from "@/action/cart.actions";
 import { addtowishlist } from "@/action/wishlist.actions";
-import { CartContext } from "@/Context/CartContext";
 import { Button } from "@base-ui/react";
 import React, { useContext } from "react";
 import { toast } from "sonner";
@@ -16,7 +14,6 @@ export default function AddBtn({
   word: React.ReactNode;
   id: string;
 }) {
-  // const { numberofcart, setnumberofcart } = useContext(CartContext);
 
   async function addwishlist() {
     const res = await addtowishlist(id);

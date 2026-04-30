@@ -38,7 +38,6 @@ export default function Navbar() {
     <nav className="bg-white border-b sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="h-20 flex items-center justify-between">
-          {/* Logo + Search */}
           <div className="flex items-center gap-6 flex-1">
             <h1 className="text-[#21313C] text-3xl font-bold whitespace-nowrap">
               <Link href="/">Fresh Cart</Link>

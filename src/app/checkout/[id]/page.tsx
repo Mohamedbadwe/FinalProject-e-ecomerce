@@ -10,7 +10,6 @@ import { checkoutSchem, checkoutType } from "@/Schema/checkout.schem";
 import { onlinePayment } from "../../../action/checkout.action";
 import {
   Building2,
-  CheckCircle2,
   CreditCard,
   Info,
   MapPin,
@@ -39,10 +38,8 @@ export default function page() {
   const { register, handleSubmit, control } = form;
 
   async function Mysubmit(data: checkoutType) {
-    console.log(data);
 
     const res = await onlinePayment(id, "", data);
-    console.log(res);
     if (res.status === "success") {
       window.location.href = res.session.url;
     }
@@ -51,7 +48,6 @@ export default function page() {
     async function fetchOrders() {
       const res = await getCart();
       setCart(res.data);
-      console.log(res.data);
     }
 
     fetchOrders();

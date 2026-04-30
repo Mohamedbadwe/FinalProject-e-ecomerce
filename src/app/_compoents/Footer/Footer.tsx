@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import Link from "next/link";
 
 import {
@@ -180,7 +179,7 @@ export default function Navbar() {
         <div className="flex items-center">
           <div>
             <CiCreditCard1 />
-            <p className="font-['Font_1'] font-medium text-[14px] leading-[20px] tracking-[0] align-middle">
+            <p className="font-['Font_1'] font-medium text-[14px] leading-5 tracking-[0] align-middle">
               Visa
             </p>
           </div>

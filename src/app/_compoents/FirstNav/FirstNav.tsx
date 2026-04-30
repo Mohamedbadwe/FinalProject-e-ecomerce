@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import React from "react";
 import { CiGift } from "react-icons/ci";
@@ -7,11 +7,8 @@ import { BiMessageAltDots } from "react-icons/bi";
 import { useSession } from "next-auth/react";
 
 export default function FirstNav() {
+  const { data, status } = useSession();
 
-
-  const {data , status} = useSession()
-
-  
   return (
     <>
       <div className="w-[90%] mx-auto">
@@ -36,20 +33,20 @@ export default function FirstNav() {
               <BiMessageAltDots />
               support@freshcart.com
             </span>
-            {status !== "authenticated" ?  
-            <>
-            <span className="flex items-center">
-              <FaUserAlt />
-              <Link href="/login">Sign in</Link>
-            </span> <span className="flex items-center">
-              <FaUserPlus />
-              <Link href="/signup">Sign up</Link>
-            </span>
-                        </>
-
-            : ""}
-        
-            
+            {status !== "authenticated" ? (
+              <>
+                <span className="flex items-center">
+                  <FaUserAlt />
+                  <Link href="/login">Sign in</Link>
+                </span>{" "}
+                <span className="flex items-center">
+                  <FaUserPlus />
+                  <Link href="/signup">Sign up</Link>
+                </span>
+              </>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

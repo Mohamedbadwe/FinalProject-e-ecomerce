@@ -7,7 +7,7 @@ import FirstNav from "./_compoents/FirstNav/FirstNav";
 import { Toaster } from "@/components/ui/sonner";
 import { SessionProvider } from "next-auth/react";
 import MyProvider from "./_compoents/MyProvider/MyProvider";
-import CartContextProvider from "../Context/CartContext"
+import CartContextProvider from "../Context/CartContext";
 import CardsFooter from "./_compoents/CardsFooter/CardsFooter";
 
 const geistSans = Geist({
@@ -37,18 +37,15 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <CartContextProvider>
-
-        <MyProvider>
-          <FirstNav />
-          <Navbar />
-          {children}
-          <Toaster />
-                <CardsFooter />
-
-          <Footer />
-        </MyProvider>
+          <MyProvider>
+            <FirstNav />
+            <Navbar />
+            {children}
+            <Toaster />
+            <CardsFooter />
+            <Footer />
+          </MyProvider>
         </CartContextProvider>
-
       </body>
     </html>
   );

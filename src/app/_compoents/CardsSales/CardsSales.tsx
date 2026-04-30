@@ -4,7 +4,7 @@ import { GrLinkNext } from "react-icons/gr";
 export default function CardsSales() {
   return (
     <>
-      <div className="w-[90%] mx-auto grid lg:grid-cols-2 sm:grid-cols-1 mb-15 mt-5 gap-[24px]">
+      <div className="w-[90%] mx-auto grid lg:grid-cols-2 sm:grid-cols-1 mb-15 mt-5 gap-6">
         <div className="bg-[linear-gradient(135deg,#00BC7D_0%,#007A55_100%)] p-8 flex flex-col gap-4 rounded-[16px] ">
           <div className="">
             <div className="bg-amber-500 w-fit py-1 px-3 rounded-full">
@@ -24,11 +24,11 @@ export default function CardsSales() {
               </span>
               <p className="font-['Font_1'] font-medium text-[14px] leading-5 tracking-[0] align-middle">
                 
-                Use code: <span className="font-['Font_1'] font-bold text-[14px] leading-[20px] tracking-[0] align-middle text-white">ORGANIC40</span>
+                Use code: <span className="font-['Font_1'] font-bold text-[14px] leading-5 tracking-[0] align-middle text-white">ORGANIC40</span>
               </p>
             </div>
             <div className="bg-[#FFFFFF] w-fit p-3 px-6 rounded-full mt-4">
-              <button className="cursor-pointer font-['Font_1'] font-semibold text-[16px] leading-6 tracking-[0] align-middle text-[#009966] flex items-center gap-[8px] ">
+              <button className="cursor-pointer font-['Font_1'] font-semibold text-[16px] leading-6 tracking-[0] align-middle text-[#009966] flex items-center gap-2 ">
                 Shop now
                 <span>
                   <GrLinkNext />

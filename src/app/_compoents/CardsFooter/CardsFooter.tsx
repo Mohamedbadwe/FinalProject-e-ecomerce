@@ -1,4 +1,3 @@
-import React from 'react'
 import {  FaTruck } from 'react-icons/fa'
 import { FaShield } from 'react-icons/fa6'
 import { FiRefreshCw } from 'react-icons/fi'

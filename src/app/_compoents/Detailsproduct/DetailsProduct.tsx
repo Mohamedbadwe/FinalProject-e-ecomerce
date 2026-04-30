@@ -9,13 +9,15 @@ import { toast } from "sonner";
 import Link from "next/link";
 import { DetailsProductProps } from "@/app/types/route.misr";
 
-export default function DetailsProduct({ Product  , stars  , id } : DetailsProductProps) {
+export default function DetailsProduct({
+  Product,
+  stars,
+  id,
+}: DetailsProductProps) {
   const [count, setCount] = useState(1);
 
   async function updatacart(sign: string, id: string, count: number) {
     const res = await Updatacart(id, count);
-
-    console.log(res);
 
     if (res.status === "success") {
       toast.success(res.message, {
@@ -29,7 +31,6 @@ export default function DetailsProduct({ Product  , stars  , id } : DetailsProdu
       setCount(count - 1);
     }
   }
-  console.log(Product);
 
   return (
     <>
@@ -80,16 +81,8 @@ export default function DetailsProduct({ Product  , stars  , id } : DetailsProdu
           <div className="mt-6">
             <p className="font-semibold mb-2">Quantity</p>
             <div className="flex items-center gap-4">
-              {/* <div className="flex items-center border rounded-lg px-4 py-2 w-fit">
-                  <button className="text-2xl select-none">–</button>
-  
-                  <span className="mx-4 text-lg">try</span>
-  
-                  <button className="text-xl select-none">+</button>
-                </div> */}
               <div className="flex items-center gap-3">
                 <button
-                  // disabled={displayedupdata}
                   onClick={() => {
                     updatacart("-", Product.id, count);
                   }}
@@ -97,17 +90,10 @@ export default function DetailsProduct({ Product  , stars  , id } : DetailsProdu
                 >
                   -
                 </button>
-                {/* {updataloading && product.product.id === currentId ? (
-                    <FiLoader className="animate-spin" />
-                  ) : (
-                    <div>
-                      <span className="font-semibold">{product.count}</span>
-                    </div>
-                  )} */}
+
                 {count}
 
                 <button
-                  // disabled={displayedupdata}
                   onClick={() => updatacart("+", Product.id, count)}
                   className="w-10 h-10 bg-green-500 text-white rounded-lg cursor-pointer disabled:bg-black-400 disabled:cursor-not-allowed"
                 >

@@ -95,7 +95,6 @@ export default function NewsletterSection() {
               </button>
             </div>
 
-            {/* Rating */}
             <div className="mt-6 text-sm text-gray-300">
               ⭐⭐⭐⭐⭐ <span className="ml-2">4.9 • 100K+ downloads</span>
             </div>

@@ -7,7 +7,6 @@ import { GrLinkNext } from "react-icons/gr";
 
 export default async function HomeCategory() {
   const Category = await getAllCategory();
-  //   console.log(Category);
 
   return (
     <>
@@ -16,7 +15,10 @@ export default async function HomeCategory() {
           <h1 className="font-[Font_1] font-bold text-[30px] leading-9 tracking-[0] align-middle border-s-8  ps-2 border-[#009966]">
             Shop By <span className="text-[#009966]">Category</span>
           </h1>
-          <Link href={`/categories`} className=" cursor-pointer font-[Font_1] text-[#16A34A] font-medium text-[16px] leading-5 tracking-[0] align-middle flex  items-center gap-2">
+          <Link
+            href={`/categories`}
+            className=" cursor-pointer font-[Font_1] text-[#16A34A] font-medium text-[16px] leading-5 tracking-[0] align-middle flex  items-center gap-2"
+          >
             View All Categories <GrLinkNext className="text-[20px]" />
           </Link>
         </div>

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FiRefreshCw } from "react-icons/fi";
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
-import { CategoryType, ProductType } from "@/app/types/route.misr";
+import {  ProductType } from "@/app/types/route.misr";
 import { IoEyeSharp } from "react-icons/io5";
 import AddBtn from "../AddBtn/AddBtn";
 import Addwishlist from "../Addwishlist/Addwishlist";
@@ -31,7 +31,7 @@ export default function ProductCard({ product }: { product: ProductType  } ) {
         </Button>
       </div>
 
-      <div className="w-full flex items-center justify-center relative     ">
+      <div className="w-full flex items-center justify-center relative">
         <Image
           src={product.imageCover}
           alt="Woman Shawl"
