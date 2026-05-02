@@ -1,5 +1,4 @@
 import { GetAllProduct } from "@/Servies/routemisr.servies";
-import React from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import Link from "next/link";
 

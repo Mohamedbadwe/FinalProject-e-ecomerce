@@ -14,7 +14,6 @@ export default function AddBtn({
   word: React.ReactNode;
   id: string;
 }) {
-
   async function addwishlist() {
     const res = await addtowishlist(id);
 
@@ -27,9 +26,14 @@ export default function AddBtn({
       });
     }
   }
- if(!id)return <><p>not login</p></>
+  if (!id)
+    return (
+      <>
+        <p>not login</p>
+      </>
+    );
   return (
-    <Button
+    <Button 
       onClick={(e) => {
         e.preventDefault();
         addwishlist();

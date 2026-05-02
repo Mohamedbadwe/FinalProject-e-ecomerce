@@ -6,7 +6,6 @@ import { CiHeart } from "react-icons/ci";
 export default function WishlistBtn({ id }: { id: string }) {
   async function addwishlist() {
     const res = await addtowishlist(id);
-    console.log(res);
   }
 
   return (

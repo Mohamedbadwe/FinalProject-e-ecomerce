@@ -19,7 +19,7 @@ export default function Page() {
     setWishlist(res || []);
   }
 
-  async function removewish(id: string) {
+ async function removewish(id: string) {
     const res = await deleteWishlist(id);
     console.log(res);
 

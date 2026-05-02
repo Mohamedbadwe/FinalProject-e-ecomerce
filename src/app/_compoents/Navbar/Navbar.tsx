@@ -98,7 +98,7 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-6">
-            <Link href="/support" className="flex items-center gap-3 group">
+            <Link href="/chatbot" className="flex items-center gap-3 group">
               <div className="w-10 h-10 bg-[#F0FDF4] rounded-full flex items-center justify-center">
                 <RiCustomerService2Fill className="text-[#16A34A] text-2xl" />
               </div>
