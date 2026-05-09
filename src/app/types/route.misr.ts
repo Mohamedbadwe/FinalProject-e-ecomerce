@@ -58,3 +58,10 @@ export interface DetailsProductProps  {
   stars: ReactNode;
   id: string;
 };
+
+export interface CartItem {
+  _id: string;
+  count: number;
+  price: number;
+  product: ProductType;
+}

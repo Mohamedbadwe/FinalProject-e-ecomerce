@@ -89,25 +89,25 @@ export default function Page() {
 
                 <div>
                   <h3 className="font-semibold text-gray-800 text-sm">
-                    {wish.title}
+                    {wish.title.split(" ").slice(0 , 2).join(" ")}
                   </h3>
                   <p className="text-xs text-gray-500">{wish.category?.name}</p>
                 </div>
               </div>
 
-              <div className="font-semibold text-gray-900">
+              <div className="font-semibold text-gray-900 ">
                 {wish.price} EGP
               </div>
 
               <div className="flex items-center gap-10">
                 <AddBtn
                   id={wish._id}
-                  classes="p-3 bg-green-500 rounded-full text-white text-lg hover:bg-green-600 transition"
+                  classes="p-3 bg-green-500 rounded-full text-white text-lg hover:bg-green-600 transition cursor-pointer "
                   word={<FaPlus />}
                 />
 
                 <button
-                  className="bg-red-400 p-3 cursor-pointer"
+                  className=" p-3 cursor-pointer"
                   onClick={() => removewish(wish._id)}
                 >
                   <FaTrash />

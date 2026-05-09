@@ -167,16 +167,13 @@ export default function CartPage() {
                       />
                     </div>
 
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center gap-2">
                       <div>
                         <h2 className="text-lg font-semibold ">
-                          {product.product.title}
+                          {product.product.title.split(" ").slice(0,3).join(" ")}
                         </h2>
                         <span className="text-sm bg-green-100 text-green-600 px-2 py-1 rounded-full w-fit">
-                          {product.product.category.name
-                            .split(" ")
-                            .slice(0, 2)
-                            .join(" ")}
+                          {product.product.category.name}
                         </span>
                         <p className="text-green-600 font-bold mt-2">
                           {product.price} EGP

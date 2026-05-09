@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useParams } from "next/navigation";
 import { checkoutSchem, checkoutType } from "@/Schema/checkout.schem";
-import { onlinePayment } from "../../../action/checkout.action";
+import {  onlinePayment } from "../../../action/checkout.action";
 import {
   Building2,
   CreditCard,
@@ -21,6 +21,7 @@ import {
 import Image from "next/image";
 import { getCart } from "@/action/cart.actions";
 import { cartProduct } from "@/app/cart/cart.type";
+import { CartItem } from "@/app/types/route.misr";
 
 export default function page() {
   const [cart, setCart] = useState<any>(null);
@@ -38,8 +39,19 @@ export default function page() {
   const { register, handleSubmit, control } = form;
 
   async function Mysubmit(data: checkoutType) {
+    // const carts = cart?.products;
 
+    // const cleanProducts =
+    //   carts?.map((item: CartItem) => ({
+    //     title: item.product.title,
+    //     price: item.price,
+    //     quantity: item.count,
+    //   })) || [];
+
+   
+// gets(data , cleanProducts , cart)
     const res = await onlinePayment(id, "", data);
+
     if (res.status === "success") {
       window.location.href = res.session.url;
     }
@@ -48,10 +60,24 @@ export default function page() {
     async function fetchOrders() {
       const res = await getCart();
       setCart(res.data);
+      console.log(res);
     }
 
     fetchOrders();
   }, []);
+
+  // const carts = cart?.products;
+  // console.log(carts);
+
+  // const cleanProducts =
+  //   carts?.map((item: CartItem) => ({
+  //     title: item.product.title,
+  //     price: item.price,
+  //     quantity: item.count,
+  //   })) || [];
+
+  // console.log(cleanProducts);
+
   return (
     <>
       <div className=" w-[90%] mx-auto grid lg:grid-cols-[1.2fr_0.6fr] gap-4  ">
@@ -293,7 +319,7 @@ export default function page() {
 
             <div className="p-4 space-y-4">
               <div className="flex flex-col gap-2">
-                {cart?.products.map((product : cartProduct) => (
+                {cart?.products.map((product: cartProduct) => (
                   <div key={product.product.id}>
                     <div className="bg-white rounded-[8px] border p-5 flex items-center justify-between">
                       <div className="flex items-center gap-4">
@@ -360,7 +386,10 @@ export default function page() {
             </div>
 
             <div className="py-4 flex justify-center">
-              <button type="submit" className="w-[90%] mx-auto cursor-pointer bg-linear-to-r from-[#16A34A] to-[#15803D] text-white py-3 rounded-xl font-semibold">
+              <button
+                type="submit"
+                className="w-[90%] mx-auto cursor-pointer bg-linear-to-r from-[#16A34A] to-[#15803D] text-white py-3 rounded-xl font-semibold"
+              >
                 🔒 Place Order
               </button>
             </div>

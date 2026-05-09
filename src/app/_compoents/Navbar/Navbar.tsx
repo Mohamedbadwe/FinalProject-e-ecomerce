@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Link from "next/link";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import { CiHeart, CiSearch } from "react-icons/ci";

@@ -76,7 +76,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
         </p>
 
         <h3 className="font-[Font_1] font-medium text-[16px] leading-6 tracking-[0] align-middle text-[#364153] line-clamp-2">
-          {product.title}
+          {product.title.split(" ").slice(0 , 3).join(" ")}
         </h3>
 
         <div className="flex items-center gap-1 mt-1">
