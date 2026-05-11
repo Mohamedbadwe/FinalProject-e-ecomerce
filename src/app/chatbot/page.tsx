@@ -3,17 +3,24 @@
 import Link from "next/link";
 import { useState } from "react";
 
-type Message = {
-  text: string;
-  sender: "user" | "bot";
-};
-
 type Option = {
   label: string;
   next: string;
 };
 
-const flow: Record<string, { text: string; options?: Option[] }> = {
+// النوع الجديد للـ flow
+type FlowNode = {
+  text: React.ReactNode;        // ← هذا هو الحل الرئيسي
+  options?: Option[];
+};
+
+// نوع الرسائل (يسمح بالـ JSX أيضاً)
+type Message = {
+  text: React.ReactNode;
+  sender: "user" | "bot";
+};
+
+const flow: Record<string, FlowNode> = {
   start: {
     text: "Welcome 👋 Choose an option:",
     options: [
@@ -23,18 +30,18 @@ const flow: Record<string, { text: string; options?: Option[] }> = {
     ],
   },
 
-products: {
-  text:(
-    <>
-      We have{" "}
-      <Link href="/categories">categories</Link>,{" "}
-      <Link href="/categories/men's-fashion">men's-fashion</Link>,{" "}
-      <Link href="/categories/electronics">electronics</Link>, and{" "}
-      <Link href="/categories/women's-fashion">women's-fashion</Link> 🔥
-    </>
-  ),
-  options: [{ label: "Back", next: "start" }],
-},
+  products: {
+    text: (
+      <>
+        We have{" "}
+        <Link href="/category/phones">phones</Link>,{" "}
+        <Link href="/category/laptops">laptops</Link>,{" "}
+        <Link href="/categories/electronics">electronics</Link>, and{" "}
+        <Link href="/categories/women's-fashion">accessories</Link> 🔥
+      </>
+    ),
+    options: [{ label: "Back", next: "start" }],
+  },
 
   prices: {
     text: "Prices start from 100$ 💰",
