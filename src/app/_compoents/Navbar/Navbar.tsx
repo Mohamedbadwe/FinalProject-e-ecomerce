@@ -174,12 +174,25 @@ export default function Navbar() {
                   >
                     Shop
                   </Link>
-                  <Link
-                    href="/categories"
-                    className="hover:text-[#16A34A] transition-colors"
-                  >
-                    Categories
-                  </Link>
+          <div className="relative group">
+              <button className="font-medium text-[#364153] hover:text-[#16A34A] transition-colors flex items-center gap-1">
+                Categories
+                <span className="text-xs">▼</span>
+              </button>
+              <div className="absolute hidden group-hover:block pt-3">
+                <div className="bg-white shadow-xl rounded-2xl py-4 px-6 w-56 border">
+                  {categories.map((cat) => (
+                    <Link
+                      key={cat.title}
+                      href={cat.href}
+                      className="block py-2.5 text-sm hover:text-[#16A34A] transition-colors"
+                    >
+                      {cat.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
                   <Link
                     href="/brands"
                     className="hover:text-[#16A34A] transition-colors"
@@ -218,7 +231,7 @@ export default function Navbar() {
                     ) : (
                       <button
                         onClick={handleSignOut}
-                        className="block w-full text-center bg-red-500 text-white py-3.5 rounded-2xl font-medium"
+                        className="block w-full text-center cursor-pointer bg-red-500 text-white py-3.5 rounded-2xl font-medium"
                       >
                         Log out
                       </button>
