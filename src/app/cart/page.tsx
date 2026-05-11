@@ -166,6 +166,7 @@ export default function CartPage() {
                         className="object-contain"
                       />
                     </div>
+                <div className="flex-col gap-2">
 
                     <div className="flex flex-col items-center gap-2">
                       <div>
@@ -180,6 +181,7 @@ export default function CartPage() {
                         </p>
                       </div>
 
+                    </div>
                       <div className="flex items-center gap-3">
                         <button
                           disabled={displayedupdata}
@@ -219,14 +221,14 @@ export default function CartPage() {
                           +
                         </button>
                       </div>
-                    </div>
+                </div>
                   </div>
 
                   <div className="flex items-end justify-end flex-col gap-4">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-2.5">
                       <div className="text-right">
                         <p className="font-bold">
-                          {product.price * product.count} EGP
+                          {(product.price * product.count)} EGP
                         </p>
                       </div>
                       {removeloading && product.product.id === currentId ? (

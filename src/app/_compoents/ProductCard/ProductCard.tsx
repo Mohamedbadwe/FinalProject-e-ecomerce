@@ -61,11 +61,11 @@ export default function ProductCard({ product }: { product: ProductType }) {
           className="object-cover h-60 z-0 "
         />
         {product.priceAfterDiscount && (
-          <p className="absolute top-0 left-0 bg-red-600 text-white p-1 rounded-4xl font-bold">
+          <p className="absolute top-0 left-0 bg-red-600 text-white p-1 rounded-4xl font-bold ps-2">
             {(
-              ((product.price - product.priceAfterDiscount) / product.price) *
+              (-(product.price - product.priceAfterDiscount) / product.price) *
               100
-            ).toFixed(2)}
+            ).toFixed(0)}
             %
           </p>
         )}

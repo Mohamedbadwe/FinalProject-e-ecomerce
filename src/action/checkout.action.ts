@@ -26,10 +26,13 @@ export async function onlinePayment(
       },
     );
     const data = await res.json();
+    console.log(data);
     return data;
+
   } catch (err) {
     console.log(err);
   }
+  
 }
 // export async function gets(data , cleanProducts , cart) {
 //   const res = await fetch(

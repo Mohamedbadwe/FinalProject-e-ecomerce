@@ -51,11 +51,14 @@ export default function page() {
    
 // gets(data , cleanProducts , cart)
     const res = await onlinePayment(id, "", data);
-
+    
+    
     if (res.status === "success") {
       window.location.href = res.session.url;
+      console.log(res);
     }
   }
+
   useEffect(() => {
     async function fetchOrders() {
       const res = await getCart();

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 type Message = {
@@ -22,10 +23,18 @@ const flow: Record<string, { text: string; options?: Option[] }> = {
     ],
   },
 
-  products: {
-    text: "We have phones, laptops, and accessories 🔥",
-    options: [{ label: "Back", next: "start" }],
-  },
+products: {
+  text:(
+    <>
+      We have{" "}
+      <Link href="/categories">categories</Link>,{" "}
+      <Link href="/categories/men's-fashion">men's-fashion</Link>,{" "}
+      <Link href="/categories/electronics">electronics</Link>, and{" "}
+      <Link href="/categories/women's-fashion">women's-fashion</Link> 🔥
+    </>
+  ),
+  options: [{ label: "Back", next: "start" }],
+},
 
   prices: {
     text: "Prices start from 100$ 💰",
