@@ -158,7 +158,7 @@ export default function CartPage() {
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-20 h-20 bg-gray-100 rounded-xl flex items-center justify-center">
-                      <Image
+                      <img
                         src={product.product.imageCover}
                         alt={product.product.title}
                         width={80}

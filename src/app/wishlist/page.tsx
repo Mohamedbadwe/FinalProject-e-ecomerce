@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { CiHeart } from "react-icons/ci";
 import Link from "next/link";
+import Image from "next/image";
 export default function Page() {
   const [wishlist, setWishlist] = useState<ProductType[]>([]);
   async function fetchWishlist() {
@@ -80,7 +81,7 @@ export default function Page() {
             >
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-lg overflow-hidden border">
-                  <img
+                  <Image
                     src={wish.imageCover}
                     alt={wish.title}
                     className="w-full h-full object-cover"

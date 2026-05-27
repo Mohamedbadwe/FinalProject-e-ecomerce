@@ -1,10 +1,6 @@
 "use client";
 import { Input } from "@/components/ui/input";
-import {
-  Field,
-  FieldError,
-  FieldLabel,
-} from "@/components/ui/field";
+import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Controller, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -12,13 +8,22 @@ import { MySchema, registerSchemaType } from "@/Schema/auth.Schems";
 import { userData } from "@/action/auth.action";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { FaFacebook, FaGoogle, FaStar, FaTruck, FaUserPlus } from "react-icons/fa";
+import {
+  FaEye,
+  FaFacebook,
+  FaGoogle,
+  FaStar,
+  FaTruck,
+  FaUserPlus,
+} from "react-icons/fa";
 import Link from "next/link";
 import { FaShield } from "react-icons/fa6";
 import Image from "next/image";
 import img from "../../../assets/images/7be87acff8878d0ff905ef9dcd5bf7d2fd7a6c6f.png";
+import { useState } from "react";
 
 export default function page() {
+  const [showPassword, setshowPassword] = useState(true);
   const Router = useRouter();
   const form = useForm<registerSchemaType>({
     defaultValues: {
@@ -213,14 +218,23 @@ export default function page() {
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="passwordInput">Password*</FieldLabel>
 
-                  <Input
-                    id="passwordInput"
-                    type="password"
-                    {...field}
-                    className="bg-gray-50 border rounded-md h-10"
-                    aria-invalid={fieldState.invalid}
-                    placeholder="Create a strong password"
-                  />
+                  <div className="relative">
+                    <Input
+                      id="passwordInput"
+                      type={showPassword ? "password" : "text"}
+                      {...field}
+                      className="bg-gray-50 border rounded-md h-10"
+                      aria-invalid={fieldState.invalid}
+                      placeholder="Create a strong password"
+                    />
+                    <div className="absolute top-3 right-5">
+                      <FaEye
+                        onClick={() => {
+                          setshowPassword(!showPassword);
+                        }}
+                      />
+                    </div>
+                  </div>
 
                   <span className="text-xs text-gray-500">
                     Must be at least 8 characters.
@@ -240,15 +254,23 @@ export default function page() {
                   <FieldLabel htmlFor="rePasswordInput">
                     Confirm Password*
                   </FieldLabel>
-
-                  <Input
-                    id="rePasswordInput"
-                    type="password"
-                    {...field}
-                    className="bg-gray-50 border rounded-md h-10"
-                    aria-invalid={fieldState.invalid}
-                    placeholder="Confirm your password"
-                  />
+                  <div className="relative">
+                    <Input
+                      id="rePasswordInput"
+                      type={showPassword ? "password" : "text"}
+                      {...field}
+                      className="bg-gray-50 border rounded-md h-10"
+                      aria-invalid={fieldState.invalid}
+                      placeholder="Confirm your password"
+                    />
+                    <div className="absolute  top-3 right-5">
+                      <FaEye
+                        onClick={() => {
+                          setshowPassword(!showPassword);
+                        }}
+                      />
+                    </div>
+                  </div>
 
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
@@ -281,18 +303,24 @@ export default function page() {
             />
             <div className="flex items-center gap-1">
               <input type="checkbox" />
-              <p className="font-medium text-[14px] leading-5">I agree to the <span className="text-[#16A34A]">Terms of Service</span> and <span className="text-[#16A34A]">Privacy Policy</span>*</p>
+              <p className="font-medium text-[14px] leading-5">
+                I agree to the{" "}
+                <span className="text-[#16A34A]">Terms of Service</span> and{" "}
+                <span className="text-[#16A34A]">Privacy Policy</span>*
+              </p>
             </div>
 
             <Button
               type="submit"
               className="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-md text-lg font-semibold cursor-pointer"
             >
-           <FaUserPlus /> Create My Account
+              <FaUserPlus /> Create My Account
             </Button>
             <div className="text-center flex justify-center font-medium text-[16px] leading-5 align-middle py-4 ">
               <p>Already have an account? </p>
-              <Link href="/login" className="text-[#16A34A]">Sign in</Link>
+              <Link href="/login" className="text-[#16A34A]">
+                Sign in
+              </Link>
             </div>
           </form>
         </div>

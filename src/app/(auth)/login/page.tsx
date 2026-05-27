@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import {
   FaClock,
+  FaEye,
   FaFacebook,
   FaGoogle,
   FaTruck,
@@ -18,8 +19,11 @@ import { signIn } from "next-auth/react";
 import { FaShield } from "react-icons/fa6";
 import img from "../../../assets/images/381609d78c4d97f9277837bc4bdf05035b888463.png";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function page() {
+
+  const [showPassword , setshowPassword] = useState(false)
   const Router = useRouter();
   const form = useForm<LoginSchemaType>({
     defaultValues: {
@@ -125,7 +129,7 @@ export default function page() {
 
           <form
             onSubmit={handleSubmit(Mysubmit)}
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-4 "
           >
             <Controller
               name="email"
@@ -134,14 +138,22 @@ export default function page() {
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="emailInput">Email*</FieldLabel>
 
+
                   <Input
                     id="emailInput"
                     type="email"
                     {...field}
-                    className="bg-gray-50 border rounded-md h-10"
+                    className="bg-gray-50 border rounded-md h-10 "
                     aria-invalid={fieldState.invalid}
                     placeholder="ali@example.com"
                   />
+                 
+                  
+
+
+
+
+
 
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
@@ -156,15 +168,20 @@ export default function page() {
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="passwordInput">Password*</FieldLabel>
+                <div className="relative">
 
                   <Input
                     id="passwordInput"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     {...field}
                     className="bg-gray-50 border rounded-md h-10"
                     aria-invalid={fieldState.invalid}
                     placeholder="Create a strong password"
                   />
+                   <div className="absolute top-3 cursor-pointer right-5 ">
+                  <FaEye onClick={()=>{setshowPassword(!showPassword)}}  />
+                  </div>
+                </div>
 
                   <span className="text-xs text-gray-500">
                     Must be at least 8 characters.
