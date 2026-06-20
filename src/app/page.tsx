@@ -21,7 +21,7 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <Myslider height="h-[600px]" listOfImg={[img1.src, img2.src, img3.src]} />
+      <Myslider height="h-[250px]" listOfImg={[img1.src, img2.src, img3.src]} />
       <Cardslider />
 
       <Suspense fallback={<Loading />}>
