@@ -5,6 +5,11 @@ import { Brand } from "../types/route.misr";
 import CardBrand from "../_compoents/Brand/CardBrand";
 import { TbBrandAppleFilled } from "react-icons/tb";
 
+
+  export const metadata = {
+  title: "Brands",
+};
+
 export default async function Page() {
   const brands: Brand[] = await Brands();
 

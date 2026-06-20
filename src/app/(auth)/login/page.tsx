@@ -19,7 +19,10 @@ import { signIn } from "next-auth/react";
 import { FaShield } from "react-icons/fa6";
 import img from "../../../assets/images/381609d78c4d97f9277837bc4bdf05035b888463.png";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+
+
 
 export default function page() {
 
@@ -58,6 +61,11 @@ export default function page() {
       toast.error(respose?.error, { duration: 3000, position: "top-center" });
     }
   }
+
+  useEffect(()=>{
+      document.title = "Login"
+    })
+  
   return (
     <>
       <div className="grid lg:grid-cols-2 w-[90%] mx-auto items-start ">

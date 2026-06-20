@@ -69,6 +69,12 @@ export default function page() {
     fetchOrders();
   }, []);
 
+  useEffect(()=>{
+    document.title ="Check out"
+  })
+
+  
+
   // const carts = cart?.products;
   // console.log(carts);
 

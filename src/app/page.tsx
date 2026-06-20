@@ -14,6 +14,10 @@ const LazyHomeCategoryCompents = lazy(
   () => import("./_compoents/HomeCategory/HomeCategory"),
 );
 
+export const metadata = {
+  title: "Home",
+};
+
 export default function Home() {
   return (
     <>

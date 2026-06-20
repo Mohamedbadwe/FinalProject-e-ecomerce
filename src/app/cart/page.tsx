@@ -102,6 +102,10 @@ export default function CartPage() {
     getUserCart();
   }, []);
 
+  useEffect(()=>{
+    document.title = "Cart"
+  })
+
   if (!productdata) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -110,6 +114,7 @@ export default function CartPage() {
     );
   }
   
+
 
   return (
     <>
@@ -158,7 +163,7 @@ export default function CartPage() {
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-20 h-20 bg-gray-100 rounded-xl flex items-center justify-center">
-                      <img
+                      <Image
                         src={product.product.imageCover}
                         alt={product.product.title}
                         width={80}
@@ -166,22 +171,23 @@ export default function CartPage() {
                         className="object-contain"
                       />
                     </div>
-                <div className="flex-col gap-2">
-
-                    <div className="flex flex-col items-center gap-2">
-                      <div>
-                        <h2 className="text-lg font-semibold ">
-                          {product.product.title.split(" ").slice(0,3).join(" ")}
-                        </h2>
-                        <span className="text-sm bg-green-100 text-green-600 px-2 py-1 rounded-full w-fit">
-                          {product.product.category.name}
-                        </span>
-                        <p className="text-green-600 font-bold mt-2">
-                          {product.price} EGP
-                        </p>
+                    <div className="flex-col gap-2">
+                      <div className="flex flex-col items-center gap-2">
+                        <div>
+                          <h2 className="text-lg font-semibold ">
+                            {product.product.title
+                              .split(" ")
+                              .slice(0, 3)
+                              .join(" ")}
+                          </h2>
+                          <span className="text-sm bg-green-100 text-green-600 px-2 py-1 rounded-full w-fit">
+                            {product.product.category.name}
+                          </span>
+                          <p className="text-green-600 font-bold mt-2">
+                            {product.price} EGP
+                          </p>
+                        </div>
                       </div>
-
-                    </div>
                       <div className="flex items-center gap-3">
                         <button
                           disabled={displayedupdata}
@@ -208,27 +214,26 @@ export default function CartPage() {
 
                         <button
                           disabled={displayedupdata}
-                          onClick={
-                            () =>
-                              updatacart(
-                                product.product.id,
-                                product.count + 1,
-                                "+",
-                              )
+                          onClick={() =>
+                            updatacart(
+                              product.product.id,
+                              product.count + 1,
+                              "+",
+                            )
                           }
                           className="w-10 h-10 bg-green-500 text-white rounded-lg cursor-pointer disabled:bg-black-400 disabled:cursor-not-allowed"
                         >
                           +
                         </button>
                       </div>
-                </div>
+                    </div>
                   </div>
 
                   <div className="flex items-end justify-end flex-col gap-4">
                     <div className="flex items-center gap-2.5">
                       <div className="text-right">
                         <p className="font-bold">
-                          {(product.price * product.count)} EGP
+                          {product.price * product.count} EGP
                         </p>
                       </div>
                       {removeloading && product.product.id === currentId ? (

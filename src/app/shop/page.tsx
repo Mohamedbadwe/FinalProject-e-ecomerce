@@ -2,9 +2,18 @@ import { GetAllProduct } from "@/Servies/routemisr.servies";
 import Link from "next/link";
 import ProductCard from "../_compoents/ProductCard/ProductCard";
 
+  export const metadata = {
+  title: "Shop",
+};
+
 export default async function page() {
 
+
+
+
   const Allproduct = await GetAllProduct();
+
+
 
   return (
     <>

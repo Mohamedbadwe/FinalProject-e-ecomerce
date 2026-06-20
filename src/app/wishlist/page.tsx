@@ -34,6 +34,9 @@ export default function Page() {
     fetchWishlist();
   }, []);
 
+  useEffect(()=>{
+    document.title = "Wishlist"
+  })
   return (
     <>
       {!wishlist || wishlist.length === 0 ? (
@@ -84,6 +87,8 @@ export default function Page() {
                   <Image
                     src={wish.imageCover}
                     alt={wish.title}
+                    width={80}
+                    height={80}
                     className="w-full h-full object-cover"
                   />
                 </div>

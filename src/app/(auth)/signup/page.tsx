@@ -20,7 +20,9 @@ import Link from "next/link";
 import { FaShield } from "react-icons/fa6";
 import Image from "next/image";
 import img from "../../../assets/images/7be87acff8878d0ff905ef9dcd5bf7d2fd7a6c6f.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+
 
 export default function page() {
   const [showPassword, setshowPassword] = useState(true);
@@ -52,6 +54,10 @@ export default function page() {
       toast.error("fail", { duration: 3000, position: "top-center" });
     }
   }
+
+  useEffect(()=>{
+    document.title = "Sign up"
+  })
   return (
     <>
       <div className="grid lg:grid-cols-2 w-[80%] mx-auto gap-12">

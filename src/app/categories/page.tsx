@@ -3,6 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { TbBrandAppleFilled } from "react-icons/tb";
 
+
+  export const metadata = {
+  title: "Category",
+};
+
 export default async function page() {
   const Category = await getAllCategory();
 

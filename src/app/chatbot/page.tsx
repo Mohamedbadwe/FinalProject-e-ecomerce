@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Option = {
   label: string;
@@ -10,7 +10,7 @@ type Option = {
 
 // النوع الجديد للـ flow
 type FlowNode = {
-  text: React.ReactNode;        // ← هذا هو الحل الرئيسي
+  text: React.ReactNode; // ← هذا هو الحل الرئيسي
   options?: Option[];
 };
 
@@ -33,8 +33,7 @@ const flow: Record<string, FlowNode> = {
   products: {
     text: (
       <>
-        We have{" "}
-        <Link href="/category/phones">phones</Link>,{" "}
+        We have <Link href="/category/phones">phones</Link>,{" "}
         <Link href="/category/laptops">laptops</Link>,{" "}
         <Link href="/categories/electronics">electronics</Link>, and{" "}
         <Link href="/categories/women's-fashion">accessories</Link> 🔥
@@ -54,13 +53,16 @@ const flow: Record<string, FlowNode> = {
   },
 };
 
-export default function Home() {
+export default async function Home(props: { params: string }) {
+  useEffect(() => {
+    document.title = "Chatbot";
+  });
   const [chat, setChat] = useState<Message[]>([
     { text: flow.start.text, sender: "bot" },
   ]);
 
   const [currentOptions, setCurrentOptions] = useState<Option[]>(
-    flow.start.options || []
+    flow.start.options || [],
   );
 
   const handleOptionClick = (option: Option) => {
