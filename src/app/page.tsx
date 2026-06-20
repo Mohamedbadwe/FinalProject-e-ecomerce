@@ -1,9 +1,9 @@
 import Image from "next/image";
 import FeaturedProducts from "./_compoents/FeaturedProducts/FeaturedProducts";
 import Myslider from "./_compoents/Myslider/Myslider";
-import img1 from "../assets/images/home-slider-1.d79601a8.png";
-import img2 from "../assets/images/images.jpg";
-import img3 from "../assets/images/pngtree-fruits-illutration-ai-and-png-png-image_1770220.jpg";
+import img1 from "../assets/images/ChatGPT Image 19 يونيو 2026، 10_02_17 م.png";
+import img2 from "../assets/images/photo 2 .png";
+import img3 from "../assets/images/photo 3.png";
 import { lazy, Suspense } from "react";
 import Loading from "./loading";
 import Cardslider from "./_compoents/Cardsslider/Cardslider";
