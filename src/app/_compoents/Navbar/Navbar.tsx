@@ -23,7 +23,6 @@ const categories = [
   { title: "Electronics", href: "/categories/electronics" },
   { title: "Women's Fashion", href: "/categories/women's-fashion" },
   { title: "Men's Fashion", href: "/categories/men's-fashion" },
-  { title: "Beauty & Health", href: "/categories/beauty-and-health" },
 ];
 
 export default function Navbar() {
@@ -138,7 +137,7 @@ export default function Navbar() {
             ) : (
               <button
                 onClick={handleSignOut}
-                className="flex items-center gap-2 bg-[#16A34A] text-white px-6 py-2.5 rounded-full hover:bg-[#15803d] transition-colors"
+                className="flex items-center gap-2 bg-[#16A34A]  text-white px-6 py-2.5 rounded-full hover:bg-[#15803d] transition-colors cursor-pointer"
               >
                 <FaUser />
                 <span className="font-medium">Log out</span>

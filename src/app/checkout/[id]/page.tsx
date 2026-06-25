@@ -21,7 +21,6 @@ import {
 import Image from "next/image";
 import { getCart } from "@/action/cart.actions";
 import { cartProduct } from "@/app/cart/cart.type";
-import { CartItem } from "@/app/types/route.misr";
 
 export default function page() {
   const [cart, setCart] = useState<any>(null);
@@ -51,6 +50,9 @@ export default function page() {
    
 // gets(data , cleanProducts , cart)
     const res = await onlinePayment(id, "", data);
+
+    console.log(res);
+    
     
     
     if (res.status === "success") {

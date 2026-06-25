@@ -8,52 +8,126 @@ type Option = {
   next: string;
 };
 
-// النوع الجديد للـ flow
 type FlowNode = {
-  text: React.ReactNode; // ← هذا هو الحل الرئيسي
+  text: React.ReactNode;
   options?: Option[];
 };
 
-// نوع الرسائل (يسمح بالـ JSX أيضاً)
 type Message = {
   text: React.ReactNode;
   sender: "user" | "bot";
 };
-
 const flow: Record<string, FlowNode> = {
   start: {
-    text: "Welcome 👋 Choose an option:",
+    text: "👋 Welcome to Fresh Cart! How can I help you?",
     options: [
-      { label: "Products 🛍️", next: "products" },
-      { label: "Prices 💰", next: "prices" },
-      { label: "Support 📞", next: "support" },
+      { label: "🛍️ Products", next: "products" },
+      { label: "🔥 Offers", next: "offers" },
+      { label: "📦 Orders", next: "orders" },
+      { label: "🚚 Shipping", next: "shipping" },
+      { label: "📞 Support", next: "support" },
     ],
   },
 
   products: {
-    text: (
-      <>
-        We have <Link href="/category/phones">phones</Link>,{" "}
-        <Link href="/category/laptops">laptops</Link>,{" "}
-        <Link href="/categories/electronics">electronics</Link>, and{" "}
-        <Link href="/categories/women's-fashion">accessories</Link> 🔥
-      </>
-    ),
-    options: [{ label: "Back", next: "start" }],
+    text: "Choose a category:",
+    options: [
+      // { label: "📱 Phones", next: "phones" },
+      { label: "Mens fashion", next: "Mensfashion" },
+      { label: "🎧 Electronics", next: "electronics" },
+      { label: "⌚ Accessories", next: "accessories" },
+      { label: "⬅️ Back", next: "start" },
+    ],
   },
 
-  prices: {
-    text: "Prices start from 100$ 💰",
-    options: [{ label: "Back", next: "start" }],
+  phones: {
+    text: <Link href="/category/phones">Browse Phones 📱</Link>,
+    options: [{ label: "⬅️ Back", next: "products" }],
+  },
+
+  Mensfashion : {
+    text: <Link href="/categories/men's-fashion">Mens fashion </Link>,
+    options: [{ label: "⬅️ Back", next: "products" }],
+  },
+
+  electronics: {
+    text: <Link href="/categories/electronics">Browse Electronics 🎧</Link>,
+    options: [{ label: "⬅️ Back", next: "products" }],
+  },
+
+  accessories: {
+    text: (
+      <Link href="/categories/women's-fashion">
+        Browse Accessories ⌚
+      </Link>
+    ),
+    options: [{ label: "⬅️ Back", next: "products" }],
+  },
+
+  offers: {
+    text: "🔥 Check our latest discounts and special offers!",
+    options: [{ label: "⬅️ Back", next: "start" }],
+  },
+
+  orders: {
+    text: "📦 What would you like to do?",
+    options: [
+      { label: "Track Order", next: "track" },
+      { label: "Return Product", next: "return" },
+      { label: "⬅️ Back", next: "start" },
+    ],
+  },
+
+  track: {
+    text: "🔍 Enter your order number to track it.",
+    options: [{ label: "⬅️ Back", next: "orders" }],
+  },
+
+  return: {
+    text: "↩️ Products can be returned within 14 days.",
+    options: [{ label: "⬅️ Back", next: "orders" }],
+  },
+
+  shipping: {
+    text: "🚚 Shipping information:",
+    options: [
+      { label: "Shipping Cost", next: "cost" },
+      { label: "Delivery Time", next: "time" },
+      { label: "⬅️ Back", next: "start" },
+    ],
+  },
+
+  cost: {
+    text: "💰 Shipping starts from $5.",
+    options: [{ label: "⬅️ Back", next: "shipping" }],
+  },
+
+  time: {
+    text: "⏳ Delivery takes 2 - 5 business days.",
+    options: [{ label: "⬅️ Back", next: "shipping" }],
   },
 
   support: {
-    text: "Contact us at support@email.com 📩",
-    options: [{ label: "Back", next: "start" }],
+    text: "📞 Contact us at support@email.com",
+    options: [
+      { label: "Working Hours", next: "hours" },
+      { label: "Email Support", next: "email" },
+      { label: "⬅️ Back", next: "start" },
+    ],
+  },
+
+  hours: {
+    text: "🕒 We are available from 9 AM to 10 PM.",
+    options: [{ label: "⬅️ Back", next: "support" }],
+  },
+
+  email: {
+    text: "📩 support@email.com",
+    options: [{ label: "⬅️ Back", next: "support" }],
   },
 };
 
-export default async function Home(props: { params: string }) {
+export default function Home(props: { params: string }) {
   useEffect(() => {
     document.title = "Chatbot";
   });
@@ -83,7 +157,7 @@ export default async function Home(props: { params: string }) {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gray-100">
+    <div className="flex flex-col h-screen bg-gray-100 w-[50%] mx-auto">
       <div className="bg-green-600 text-white p-4 text-center font-bold">
         Chatbot
       </div>

@@ -1,7 +1,8 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import "./slider.css"
+import "./slider.css";
+import Image from "next/image";
 
 export default function Myslider({
   spaceBetween = 0,
@@ -20,15 +21,22 @@ export default function Myslider({
       className={height}
       spaceBetween={spaceBetween}
       slidesPerView={slidesPerView}
-      navigation 
-      pagination ={{clickable:true , renderBullet(index, className) {
-         return `<span class="${className} bg-[#FFFFFF80]! "></span>`;
-      },}}
+      navigation
+      pagination={{
+        clickable: true,
+        renderBullet(index, className) {
+          return `<span class="${className} bg-[#FFFFFF80]! "></span>`;
+        },
+      }}
     >
       {listOfImg.map((img) => (
         <SwiperSlide key={img} className="relative bg-[#00C950E5]">
-
-          <img src={img} alt={img} className="w-full object-cover  absolute inset-0" />
+          <Image
+            src={img}
+            fill
+            alt={img}
+            className="w-full object-cover absolute inset-0"
+          />
         </SwiperSlide>
       ))}
     </Swiper>

@@ -1,52 +1,62 @@
 import { allorders } from "@/Servies/routemisr.servies";
 import Image from "next/image";
 
-export default async function Page(props: { params: { id: string } }) {
+export default async function Page() {
+  const order = await allorders();
 
- const params = await props.params;
-  const id = params.id;
-
-  const orders = await allorders(id);
-  
+  console.log(order);
 
   return (
-    <div className="p-4">
-      {orders?.data?.map((order: any) => (
-        <div key={order._id} className="mb-6">
-          <h2 className="font-bold mb-2">
-            Order Total: {order.totalOrderPrice} EGP
-          </h2>
-
-          {order.cartItems.map((item: any) => (
-            <div
-              key={item._id}
-              className="bg-white rounded-2xl shadow-md p-4 flex items-center gap-4 mb-2"
-            >
-              <Image
-                src={item.product.imageCover}
-                alt={item.product.title}
-                width={80}
-                height={80}
-                className="object-contain"
-              />
-
-              <div>
-                <h3 className="font-semibold">
-                  {item.product.title}
-                </h3>
-
-                <span className="text-sm text-green-600">
-                  {item.product.category.name}
+    <>
+      <div className="p-4">
+        {order?.data?.map((order: any) => (
+          <div key={order._id} className="mb-8">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="font-bold text-xl">
+                Order Total:{" "}
+                <span className="text-green-600">
+                  {order.totalOrderPrice} EGP
                 </span>
-
-                <p className="font-bold">
-                  {item.price} EGP × {item.count}
-                </p>
-              </div>
+              </h2>
             </div>
-          ))}
-        </div>
-      ))}
-    </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {order.cartItems.map((item: any) => (
+                <div
+                  key={item._id}
+                  className="bg-white rounded-2xl shadow-md p-4 hover:shadow-lg transition-shadow duration-300"
+                >
+                  <div className="flex justify-center mb-3">
+                    <Image
+                      src={item.product.imageCover}
+                      alt={item.product.title}
+                      width={100}
+                      height={100}
+                      className="object-contain h-24 w-24"
+                    />
+                  </div>
+
+                  <div className="text-center">
+                    <h3 className="font-semibold text-sm leading-tight mb-1 line-clamp-2">
+                      {item.product.title}
+                    </h3>
+
+                    <span className="text-xs text-green-600 block mb-2">
+                      {item.product.category.name}
+                    </span>
+
+                    <p className="font-bold text-lg">{item.price} EGP</p>
+                    <p className="text-sm text-gray-500">
+                      Quantity:{" "}
+                      <span className="font-semibold">{item.count}</span>
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }

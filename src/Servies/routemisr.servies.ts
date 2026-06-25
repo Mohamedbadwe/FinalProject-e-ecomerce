@@ -28,9 +28,6 @@ export async function getProduct(id: string): Promise<ProductType | undefined> {
   }
 }
 
-
-
-
 export async function getAllCategory(): Promise<CategoryType[] | undefined> {
   try {
     const res = await fetch(
@@ -46,9 +43,6 @@ export async function getAllCategory(): Promise<CategoryType[] | undefined> {
     return undefined;
   }
 }
-
-
-
 
 export async function Singlecategory(id: string): Promise<SingleType | null> {
   try {
@@ -66,37 +60,35 @@ export async function Singlecategory(id: string): Promise<SingleType | null> {
   }
 }
 
-export async function allorders(productId : string) {
-try{
-    const res = await fetch(`https://ecommerce.routemisr.com/api/v1/orders/user/${productId}`, {
-    cache: "force-cache",
-  });
+export async function allorders() {
+  try {
+    const res = await fetch(
+      `https://ecommerce.routemisr.com/api/v1/orders`,
+      {
+        cache: "force-cache",
+      },
+    );
 
-  const data = await res.json();
+    const data = await res.json();
 
-  return data;
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
 }
-catch(err){
-  console.log(err);
-  
-}
-}
-
 
 export async function Brands() {
-try{
+  try {
     const res = await fetch(`https://ecommerce.routemisr.com/api/v1/brands`, {
-    cache: "force-cache",
-  });
+      cache: "force-cache",
+    });
 
-  const data = await res.json();
+    const data = await res.json();
 
-  return data.data;
-}
-catch(err){
-  console.log(err);
-  
-}
+    return data.data;
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export async function BrandDetails(id: string): Promise<SingleType | null> {
@@ -115,7 +107,6 @@ export async function BrandDetails(id: string): Promise<SingleType | null> {
   }
 }
 
-
 export async function Brandcard(id: string): Promise<SingleType | null> {
   try {
     const res = await fetch(
@@ -131,9 +122,6 @@ export async function Brandcard(id: string): Promise<SingleType | null> {
     return null;
   }
 }
-
-
-
 
 export async function SubCategories() {
   try {
@@ -151,9 +139,9 @@ export async function SubCategories() {
   }
 }
 
-
-
-export async function detailsSubCategories(id: string): Promise<SingleType | null> {
+export async function detailsSubCategories(
+  id: string,
+): Promise<SingleType | null> {
   try {
     const res = await fetch(
       `https://ecommerce.routemisr.com/api/v1/categories/${id}/subcategories`,
@@ -162,7 +150,7 @@ export async function detailsSubCategories(id: string): Promise<SingleType | nul
       },
     );
     const data = await res.json();
-    return data
+    return data;
   } catch (err) {
     console.log(err);
     return null;
